@@ -8,7 +8,7 @@ const ref = {
     button: document.querySelector('.feedback-form button')
 }
 
-ref.form.addEventListener('input', throttle(onFormText, 500));
+ref.form.addEventListener('input', throttle(onFormTextareaInput, 500));
 ref.form.addEventListener('submit', onFormSubmit);
 
 const STORAGE_KEY = 'feedback-form-state';
@@ -27,7 +27,7 @@ ref.form.addEventListener('input', e => {
     
 })
 
-function onFormText(e) {
+function onFormTextareaInput(e) {
     const message = e.target.value;
     console.log(message);
     localStorage.setItem(STORAGE_KEY, message);
